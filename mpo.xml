@@ -1,0 +1,1722 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://devian.gr/movieproductionontology"
+     xml:base="http://devian.gr/movieproductionontology"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:movieproductionontology="http://devian.gr/movieproductionontology#">
+    <owl:Ontology rdf:about="http://devian.gr/movieproductionontology"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#bornAt -->
+
+    <owl:ObjectProperty rdf:about="http://devian.gr/movieproductionontology#bornAt">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://devian.gr/movieproductionontology#Person"/>
+        <rdfs:range rdf:resource="http://devian.gr/movieproductionontology#Country"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#coStarredWith -->
+
+    <owl:ObjectProperty rdf:about="http://devian.gr/movieproductionontology#coStarredWith">
+        <owl:inverseOf rdf:resource="http://devian.gr/movieproductionontology#coStarredWith"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdfs:domain rdf:resource="http://devian.gr/movieproductionontology#Actor"/>
+        <rdfs:range rdf:resource="http://devian.gr/movieproductionontology#Actor"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#companyLocatedAt -->
+
+    <owl:ObjectProperty rdf:about="http://devian.gr/movieproductionontology#companyLocatedAt">
+        <rdfs:domain rdf:resource="http://devian.gr/movieproductionontology#ProductionCompany"/>
+        <rdfs:range rdf:resource="http://devian.gr/movieproductionontology#Country"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#creditedBy -->
+
+    <owl:ObjectProperty rdf:about="http://devian.gr/movieproductionontology#creditedBy">
+        <owl:inverseOf rdf:resource="http://devian.gr/movieproductionontology#hasParticipatedInMovie"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#directedBy -->
+
+    <owl:ObjectProperty rdf:about="http://devian.gr/movieproductionontology#directedBy">
+        <rdfs:subPropertyOf rdf:resource="http://devian.gr/movieproductionontology#creditedBy"/>
+        <owl:inverseOf rdf:resource="http://devian.gr/movieproductionontology#hasDirectedMovie"/>
+        <rdfs:domain rdf:resource="http://devian.gr/movieproductionontology#Movie"/>
+        <rdfs:range rdf:resource="http://devian.gr/movieproductionontology#Director"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#equipmentUsedBy -->
+
+    <owl:ObjectProperty rdf:about="http://devian.gr/movieproductionontology#equipmentUsedBy">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="http://devian.gr/movieproductionontology#usedEquipment"/>
+        <rdfs:domain rdf:resource="http://devian.gr/movieproductionontology#Equipment"/>
+        <rdfs:range rdf:resource="http://devian.gr/movieproductionontology#Movie"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#facilityLocatedAt -->
+
+    <owl:ObjectProperty rdf:about="http://devian.gr/movieproductionontology#facilityLocatedAt">
+        <rdfs:domain rdf:resource="http://devian.gr/movieproductionontology#Facility"/>
+        <rdfs:range rdf:resource="http://devian.gr/movieproductionontology#Country"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#filmLocationUsedByMovie -->
+
+    <owl:ObjectProperty rdf:about="http://devian.gr/movieproductionontology#filmLocationUsedByMovie">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="http://devian.gr/movieproductionontology#movieFilmedAt"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://devian.gr/movieproductionontology#Country"/>
+                    <rdf:Description rdf:about="http://devian.gr/movieproductionontology#Facility"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://devian.gr/movieproductionontology#Movie"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#hasDirectedMovie -->
+
+    <owl:ObjectProperty rdf:about="http://devian.gr/movieproductionontology#hasDirectedMovie">
+        <rdfs:subPropertyOf rdf:resource="http://devian.gr/movieproductionontology#hasParticipatedInMovie"/>
+        <rdfs:domain rdf:resource="http://devian.gr/movieproductionontology#Director"/>
+        <rdfs:range rdf:resource="http://devian.gr/movieproductionontology#Movie"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#hasGenre -->
+
+    <owl:ObjectProperty rdf:about="http://devian.gr/movieproductionontology#hasGenre">
+        <rdfs:domain rdf:resource="http://devian.gr/movieproductionontology#Movie"/>
+        <rdfs:range rdf:resource="http://devian.gr/movieproductionontology#Genre"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#hasManufactured -->
+
+    <owl:ObjectProperty rdf:about="http://devian.gr/movieproductionontology#hasManufactured">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="http://devian.gr/movieproductionontology#manufacturedBy"/>
+        <rdfs:domain rdf:resource="http://devian.gr/movieproductionontology#EquipmentManufacturer"/>
+        <rdfs:range rdf:resource="http://devian.gr/movieproductionontology#Equipment"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#hasParentCompany -->
+
+    <owl:ObjectProperty rdf:about="http://devian.gr/movieproductionontology#hasParentCompany">
+        <owl:inverseOf rdf:resource="http://devian.gr/movieproductionontology#hasSubsidiary"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:domain rdf:resource="http://devian.gr/movieproductionontology#ProductionCompany"/>
+        <rdfs:range rdf:resource="http://devian.gr/movieproductionontology#ProductionCompany"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#hasParticipatedInMovie -->
+
+    <owl:ObjectProperty rdf:about="http://devian.gr/movieproductionontology#hasParticipatedInMovie">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#hasProducedMovie -->
+
+    <owl:ObjectProperty rdf:about="http://devian.gr/movieproductionontology#hasProducedMovie">
+        <rdfs:subPropertyOf rdf:resource="http://devian.gr/movieproductionontology#hasParticipatedInMovie"/>
+        <owl:inverseOf rdf:resource="http://devian.gr/movieproductionontology#producedBy"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://devian.gr/movieproductionontology#Producer"/>
+                    <rdf:Description rdf:about="http://devian.gr/movieproductionontology#ProductionCompany"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://devian.gr/movieproductionontology#Movie"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#hasSex -->
+
+    <owl:ObjectProperty rdf:about="http://devian.gr/movieproductionontology#hasSex">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://devian.gr/movieproductionontology#Person"/>
+        <rdfs:range rdf:resource="http://devian.gr/movieproductionontology#Sex"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#hasSubsidiary -->
+
+    <owl:ObjectProperty rdf:about="http://devian.gr/movieproductionontology#hasSubsidiary">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:domain rdf:resource="http://devian.gr/movieproductionontology#ProductionCompany"/>
+        <rdfs:range rdf:resource="http://devian.gr/movieproductionontology#ProductionCompany"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#hasWrittenMovie -->
+
+    <owl:ObjectProperty rdf:about="http://devian.gr/movieproductionontology#hasWrittenMovie">
+        <rdfs:subPropertyOf rdf:resource="http://devian.gr/movieproductionontology#hasParticipatedInMovie"/>
+        <owl:inverseOf rdf:resource="http://devian.gr/movieproductionontology#writtenBy"/>
+        <rdfs:domain rdf:resource="http://devian.gr/movieproductionontology#Screenwritter"/>
+        <rdfs:range rdf:resource="http://devian.gr/movieproductionontology#Movie"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#leadBy -->
+
+    <owl:ObjectProperty rdf:about="http://devian.gr/movieproductionontology#leadBy">
+        <rdfs:subPropertyOf rdf:resource="http://devian.gr/movieproductionontology#creditedBy"/>
+        <owl:inverseOf rdf:resource="http://devian.gr/movieproductionontology#wasLeadInMovie"/>
+        <rdfs:domain rdf:resource="http://devian.gr/movieproductionontology#Movie"/>
+        <rdfs:range rdf:resource="http://devian.gr/movieproductionontology#Actor"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#manufacturedBy -->
+
+    <owl:ObjectProperty rdf:about="http://devian.gr/movieproductionontology#manufacturedBy">
+        <rdfs:domain rdf:resource="http://devian.gr/movieproductionontology#Equipment"/>
+        <rdfs:range rdf:resource="http://devian.gr/movieproductionontology#EquipmentManufacturer"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#movieFilmedAt -->
+
+    <owl:ObjectProperty rdf:about="http://devian.gr/movieproductionontology#movieFilmedAt">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://devian.gr/movieproductionontology#Movie"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://devian.gr/movieproductionontology#Country"/>
+                    <rdf:Description rdf:about="http://devian.gr/movieproductionontology#Facility"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#participatedBy -->
+
+    <owl:ObjectProperty rdf:about="http://devian.gr/movieproductionontology#participatedBy">
+        <rdfs:subPropertyOf rdf:resource="http://devian.gr/movieproductionontology#creditedBy"/>
+        <owl:inverseOf rdf:resource="http://devian.gr/movieproductionontology#wasExtraInMovie"/>
+        <rdfs:domain rdf:resource="http://devian.gr/movieproductionontology#Movie"/>
+        <rdfs:range rdf:resource="http://devian.gr/movieproductionontology#Actor"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#producedBy -->
+
+    <owl:ObjectProperty rdf:about="http://devian.gr/movieproductionontology#producedBy">
+        <rdfs:subPropertyOf rdf:resource="http://devian.gr/movieproductionontology#creditedBy"/>
+        <rdfs:domain rdf:resource="http://devian.gr/movieproductionontology#Movie"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://devian.gr/movieproductionontology#Producer"/>
+                    <rdf:Description rdf:about="http://devian.gr/movieproductionontology#ProductionCompany"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#staffedBy -->
+
+    <owl:ObjectProperty rdf:about="http://devian.gr/movieproductionontology#staffedBy">
+        <rdfs:subPropertyOf rdf:resource="http://devian.gr/movieproductionontology#creditedBy"/>
+        <owl:inverseOf rdf:resource="http://devian.gr/movieproductionontology#wasStaffInMovie"/>
+        <rdfs:domain rdf:resource="http://devian.gr/movieproductionontology#Movie"/>
+        <rdfs:range rdf:resource="http://devian.gr/movieproductionontology#Staff"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#supportedBy -->
+
+    <owl:ObjectProperty rdf:about="http://devian.gr/movieproductionontology#supportedBy">
+        <rdfs:subPropertyOf rdf:resource="http://devian.gr/movieproductionontology#creditedBy"/>
+        <owl:inverseOf rdf:resource="http://devian.gr/movieproductionontology#wasSupportInMovie"/>
+        <rdfs:domain rdf:resource="http://devian.gr/movieproductionontology#Movie"/>
+        <rdfs:range rdf:resource="http://devian.gr/movieproductionontology#Actor"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#usedEquipment -->
+
+    <owl:ObjectProperty rdf:about="http://devian.gr/movieproductionontology#usedEquipment">
+        <rdfs:domain rdf:resource="http://devian.gr/movieproductionontology#Movie"/>
+        <rdfs:range rdf:resource="http://devian.gr/movieproductionontology#Equipment"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#wasExtraInMovie -->
+
+    <owl:ObjectProperty rdf:about="http://devian.gr/movieproductionontology#wasExtraInMovie">
+        <rdfs:subPropertyOf rdf:resource="http://devian.gr/movieproductionontology#hasParticipatedInMovie"/>
+        <rdfs:domain rdf:resource="http://devian.gr/movieproductionontology#Actor"/>
+        <rdfs:range rdf:resource="http://devian.gr/movieproductionontology#Movie"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#wasLeadInMovie -->
+
+    <owl:ObjectProperty rdf:about="http://devian.gr/movieproductionontology#wasLeadInMovie">
+        <rdfs:subPropertyOf rdf:resource="http://devian.gr/movieproductionontology#hasParticipatedInMovie"/>
+        <rdfs:domain rdf:resource="http://devian.gr/movieproductionontology#Actor"/>
+        <rdfs:range rdf:resource="http://devian.gr/movieproductionontology#Movie"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#wasStaffInMovie -->
+
+    <owl:ObjectProperty rdf:about="http://devian.gr/movieproductionontology#wasStaffInMovie">
+        <rdfs:subPropertyOf rdf:resource="http://devian.gr/movieproductionontology#hasParticipatedInMovie"/>
+        <rdfs:domain rdf:resource="http://devian.gr/movieproductionontology#Staff"/>
+        <rdfs:range rdf:resource="http://devian.gr/movieproductionontology#Movie"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#wasSupportInMovie -->
+
+    <owl:ObjectProperty rdf:about="http://devian.gr/movieproductionontology#wasSupportInMovie">
+        <rdfs:subPropertyOf rdf:resource="http://devian.gr/movieproductionontology#hasParticipatedInMovie"/>
+        <rdfs:domain rdf:resource="http://devian.gr/movieproductionontology#Actor"/>
+        <rdfs:range rdf:resource="http://devian.gr/movieproductionontology#Movie"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#writtenBy -->
+
+    <owl:ObjectProperty rdf:about="http://devian.gr/movieproductionontology#writtenBy">
+        <rdfs:subPropertyOf rdf:resource="http://devian.gr/movieproductionontology#creditedBy"/>
+        <rdfs:domain rdf:resource="http://devian.gr/movieproductionontology#Movie"/>
+        <rdfs:range rdf:resource="http://devian.gr/movieproductionontology#Screenwritter"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#hasBirthday -->
+
+    <owl:DatatypeProperty rdf:about="http://devian.gr/movieproductionontology#hasBirthday">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://devian.gr/movieproductionontology#Person"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#hasBudget -->
+
+    <owl:DatatypeProperty rdf:about="http://devian.gr/movieproductionontology#hasBudget">
+        <rdfs:domain rdf:resource="http://devian.gr/movieproductionontology#Movie"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#hasDeathDate -->
+
+    <owl:DatatypeProperty rdf:about="http://devian.gr/movieproductionontology#hasDeathDate">
+        <rdfs:domain rdf:resource="http://devian.gr/movieproductionontology#Person"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#hasDescription -->
+
+    <owl:DatatypeProperty rdf:about="http://devian.gr/movieproductionontology#hasDescription">
+        <rdfs:domain rdf:resource="http://devian.gr/movieproductionontology#Movie"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#hasFirstname -->
+
+    <owl:DatatypeProperty rdf:about="http://devian.gr/movieproductionontology#hasFirstname">
+        <rdfs:domain rdf:resource="http://devian.gr/movieproductionontology#Person"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#hasJobTitle -->
+
+    <owl:DatatypeProperty rdf:about="http://devian.gr/movieproductionontology#hasJobTitle">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://devian.gr/movieproductionontology#Staff"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#hasLastname -->
+
+    <owl:DatatypeProperty rdf:about="http://devian.gr/movieproductionontology#hasLastname">
+        <rdfs:domain rdf:resource="http://devian.gr/movieproductionontology#Person"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#hasName -->
+
+    <owl:DatatypeProperty rdf:about="http://devian.gr/movieproductionontology#hasName">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://devian.gr/movieproductionontology#Country"/>
+                    <rdf:Description rdf:about="http://devian.gr/movieproductionontology#Equipment"/>
+                    <rdf:Description rdf:about="http://devian.gr/movieproductionontology#EquipmentManufacturer"/>
+                    <rdf:Description rdf:about="http://devian.gr/movieproductionontology#Genre"/>
+                    <rdf:Description rdf:about="http://devian.gr/movieproductionontology#Movie"/>
+                    <rdf:Description rdf:about="http://devian.gr/movieproductionontology#ProductionCompany"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#hasReleaseDate -->
+
+    <owl:DatatypeProperty rdf:about="http://devian.gr/movieproductionontology#hasReleaseDate">
+        <rdfs:domain rdf:resource="http://devian.gr/movieproductionontology#Movie"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#hasRunTime -->
+
+    <owl:DatatypeProperty rdf:about="http://devian.gr/movieproductionontology#hasRunTime">
+        <rdfs:domain rdf:resource="http://devian.gr/movieproductionontology#Movie"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#isForAdults -->
+
+    <owl:DatatypeProperty rdf:about="http://devian.gr/movieproductionontology#isForAdults">
+        <rdfs:domain rdf:resource="http://devian.gr/movieproductionontology#Movie"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#Actor -->
+
+    <owl:Class rdf:about="http://devian.gr/movieproductionontology#Actor">
+        <rdfs:subClassOf rdf:resource="http://devian.gr/movieproductionontology#Person"/>
+    </owl:Class>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#Camera -->
+
+    <owl:Class rdf:about="http://devian.gr/movieproductionontology#Camera">
+        <rdfs:subClassOf rdf:resource="http://devian.gr/movieproductionontology#Equipment"/>
+    </owl:Class>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#Country -->
+
+    <owl:Class rdf:about="http://devian.gr/movieproductionontology#Country">
+        <rdfs:subClassOf rdf:resource="http://devian.gr/movieproductionontology#Location"/>
+    </owl:Class>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#Director -->
+
+    <owl:Class rdf:about="http://devian.gr/movieproductionontology#Director">
+        <rdfs:subClassOf rdf:resource="http://devian.gr/movieproductionontology#Person"/>
+    </owl:Class>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#Equipment -->
+
+    <owl:Class rdf:about="http://devian.gr/movieproductionontology#Equipment"/>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#EquipmentManufacturer -->
+
+    <owl:Class rdf:about="http://devian.gr/movieproductionontology#EquipmentManufacturer"/>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#Facility -->
+
+    <owl:Class rdf:about="http://devian.gr/movieproductionontology#Facility"/>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#Genre -->
+
+    <owl:Class rdf:about="http://devian.gr/movieproductionontology#Genre"/>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#Lens -->
+
+    <owl:Class rdf:about="http://devian.gr/movieproductionontology#Lens">
+        <rdfs:subClassOf rdf:resource="http://devian.gr/movieproductionontology#Equipment"/>
+    </owl:Class>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#Lighting -->
+
+    <owl:Class rdf:about="http://devian.gr/movieproductionontology#Lighting">
+        <rdfs:subClassOf rdf:resource="http://devian.gr/movieproductionontology#Equipment"/>
+    </owl:Class>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#Location -->
+
+    <owl:Class rdf:about="http://devian.gr/movieproductionontology#Location"/>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#Microphone -->
+
+    <owl:Class rdf:about="http://devian.gr/movieproductionontology#Microphone">
+        <rdfs:subClassOf rdf:resource="http://devian.gr/movieproductionontology#Equipment"/>
+    </owl:Class>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#Movie -->
+
+    <owl:Class rdf:about="http://devian.gr/movieproductionontology#Movie"/>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#Person -->
+
+    <owl:Class rdf:about="http://devian.gr/movieproductionontology#Person"/>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#Producer -->
+
+    <owl:Class rdf:about="http://devian.gr/movieproductionontology#Producer">
+        <rdfs:subClassOf rdf:resource="http://devian.gr/movieproductionontology#Person"/>
+    </owl:Class>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#ProductionCompany -->
+
+    <owl:Class rdf:about="http://devian.gr/movieproductionontology#ProductionCompany"/>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#Screenwritter -->
+
+    <owl:Class rdf:about="http://devian.gr/movieproductionontology#Screenwritter">
+        <rdfs:subClassOf rdf:resource="http://devian.gr/movieproductionontology#Person"/>
+    </owl:Class>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#Sex -->
+
+    <owl:Class rdf:about="http://devian.gr/movieproductionontology#Sex"/>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#Staff -->
+
+    <owl:Class rdf:about="http://devian.gr/movieproductionontology#Staff">
+        <rdfs:subClassOf rdf:resource="http://devian.gr/movieproductionontology#Person"/>
+    </owl:Class>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#Tripod -->
+
+    <owl:Class rdf:about="http://devian.gr/movieproductionontology#Tripod">
+        <rdfs:subClassOf rdf:resource="http://devian.gr/movieproductionontology#Equipment"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#A24 -->
+
+    <owl:NamedIndividual rdf:about="http://devian.gr/movieproductionontology#A24">
+        <rdf:type rdf:resource="http://devian.gr/movieproductionontology#ProductionCompany"/>
+        <movieproductionontology:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A24</movieproductionontology:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#Aaton -->
+
+    <owl:NamedIndividual rdf:about="http://devian.gr/movieproductionontology#Aaton">
+        <rdf:type rdf:resource="http://devian.gr/movieproductionontology#EquipmentManufacturer"/>
+        <movieproductionontology:hasManufactured rdf:resource="http://devian.gr/movieproductionontology#Aaton_Penelope"/>
+        <movieproductionontology:hasManufactured rdf:resource="http://devian.gr/movieproductionontology#Aaton_XTR_Prod"/>
+        <movieproductionontology:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Aaton</movieproductionontology:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#Aaton_Penelope -->
+
+    <owl:NamedIndividual rdf:about="http://devian.gr/movieproductionontology#Aaton_Penelope">
+        <rdf:type rdf:resource="http://devian.gr/movieproductionontology#Camera"/>
+        <movieproductionontology:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Aaton Penelope</movieproductionontology:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#Aaton_XTR_Prod -->
+
+    <owl:NamedIndividual rdf:about="http://devian.gr/movieproductionontology#Aaton_XTR_Prod">
+        <rdf:type rdf:resource="http://devian.gr/movieproductionontology#Camera"/>
+        <movieproductionontology:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Aaton XTR Prod</movieproductionontology:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#Action -->
+
+    <owl:NamedIndividual rdf:about="http://devian.gr/movieproductionontology#Action">
+        <rdf:type rdf:resource="http://devian.gr/movieproductionontology#Genre"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#Adventure -->
+
+    <owl:NamedIndividual rdf:about="http://devian.gr/movieproductionontology#Adventure">
+        <rdf:type rdf:resource="http://devian.gr/movieproductionontology#Genre"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#Alex_Garland -->
+
+    <owl:NamedIndividual rdf:about="http://devian.gr/movieproductionontology#Alex_Garland">
+        <rdf:type rdf:resource="http://devian.gr/movieproductionontology#Director"/>
+        <rdf:type rdf:resource="http://devian.gr/movieproductionontology#Screenwritter"/>
+        <movieproductionontology:bornAt rdf:resource="http://devian.gr/movieproductionontology#England"/>
+        <movieproductionontology:hasSex rdf:resource="http://devian.gr/movieproductionontology#Male"/>
+        <movieproductionontology:hasBirthday rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1970-05-26T00:00:00</movieproductionontology:hasBirthday>
+        <movieproductionontology:hasFirstname rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Alex</movieproductionontology:hasFirstname>
+        <movieproductionontology:hasLastname rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Garland</movieproductionontology:hasLastname>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#Alicia_Vikander -->
+
+    <owl:NamedIndividual rdf:about="http://devian.gr/movieproductionontology#Alicia_Vikander">
+        <rdf:type rdf:resource="http://devian.gr/movieproductionontology#Actor"/>
+        <movieproductionontology:bornAt rdf:resource="http://devian.gr/movieproductionontology#Sweden"/>
+        <movieproductionontology:coStarredWith rdf:resource="http://devian.gr/movieproductionontology#Domhall_Gleeson"/>
+        <movieproductionontology:coStarredWith rdf:resource="http://devian.gr/movieproductionontology#Hannah_John-Kamen"/>
+        <movieproductionontology:hasSex rdf:resource="http://devian.gr/movieproductionontology#Female"/>
+        <movieproductionontology:hasBirthday rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1988-08-03T00:00:00</movieproductionontology:hasBirthday>
+        <movieproductionontology:hasFirstname>Alicia</movieproductionontology:hasFirstname>
+        <movieproductionontology:hasLastname>Vikander</movieproductionontology:hasLastname>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#Angenieux -->
+
+    <owl:NamedIndividual rdf:about="http://devian.gr/movieproductionontology#Angenieux">
+        <rdf:type rdf:resource="http://devian.gr/movieproductionontology#EquipmentManufacturer"/>
+        <movieproductionontology:hasManufactured rdf:resource="http://devian.gr/movieproductionontology#Angenieux_Optimo"/>
+        <movieproductionontology:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Angenieux</movieproductionontology:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#Angenieux_Optimo -->
+
+    <owl:NamedIndividual rdf:about="http://devian.gr/movieproductionontology#Angenieux_Optimo">
+        <rdf:type rdf:resource="http://devian.gr/movieproductionontology#Lens"/>
+        <movieproductionontology:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Angenieux Optimo</movieproductionontology:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#Animation -->
+
+    <owl:NamedIndividual rdf:about="http://devian.gr/movieproductionontology#Animation">
+        <rdf:type rdf:resource="http://devian.gr/movieproductionontology#Genre"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#Arri -->
+
+    <owl:NamedIndividual rdf:about="http://devian.gr/movieproductionontology#Arri">
+        <rdf:type rdf:resource="http://devian.gr/movieproductionontology#EquipmentManufacturer"/>
+        <movieproductionontology:hasManufactured rdf:resource="http://devian.gr/movieproductionontology#Arri_Alexa_Mini"/>
+        <movieproductionontology:hasManufactured rdf:resource="http://devian.gr/movieproductionontology#Arri_Alexa_SXT_Plus"/>
+        <movieproductionontology:hasManufactured rdf:resource="http://devian.gr/movieproductionontology#Arri_Alexa_XT"/>
+        <movieproductionontology:hasManufactured rdf:resource="http://devian.gr/movieproductionontology#Arri_Orbiter"/>
+        <movieproductionontology:hasManufactured rdf:resource="http://devian.gr/movieproductionontology#Ultra_Prime"/>
+        <movieproductionontology:hasManufactured rdf:resource="http://devian.gr/movieproductionontology#Arri_Alexa_Plus_4:3"/>
+        <movieproductionontology:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Canon</movieproductionontology:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#Arri_Alexa_Mini -->
+
+    <owl:NamedIndividual rdf:about="http://devian.gr/movieproductionontology#Arri_Alexa_Mini">
+        <rdf:type rdf:resource="http://devian.gr/movieproductionontology#Camera"/>
+        <movieproductionontology:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Arri Alexa Mini</movieproductionontology:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#Arri_Alexa_SXT_Plus -->
+
+    <owl:NamedIndividual rdf:about="http://devian.gr/movieproductionontology#Arri_Alexa_SXT_Plus">
+        <rdf:type rdf:resource="http://devian.gr/movieproductionontology#Camera"/>
+        <movieproductionontology:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Arri Alexa SXT Plus</movieproductionontology:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#Arri_Alexa_XT -->
+
+    <owl:NamedIndividual rdf:about="http://devian.gr/movieproductionontology#Arri_Alexa_XT">
+        <rdf:type rdf:resource="http://devian.gr/movieproductionontology#Camera"/>
+        <movieproductionontology:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Arri Alexa XT</movieproductionontology:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#Arri_Orbiter -->
+
+    <owl:NamedIndividual rdf:about="http://devian.gr/movieproductionontology#Arri_Orbiter">
+        <rdf:type rdf:resource="http://devian.gr/movieproductionontology#Lighting"/>
+        <movieproductionontology:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Arri Orbiter</movieproductionontology:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#Audio-Technica_ATR_3350 -->
+
+    <owl:NamedIndividual rdf:about="http://devian.gr/movieproductionontology#Audio-Technica_ATR_3350">
+        <rdf:type rdf:resource="http://devian.gr/movieproductionontology#Microphone"/>
+        <movieproductionontology:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Audio-Technica ATR 3350</movieproductionontology:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#Audio_Technica -->
+
+    <owl:NamedIndividual rdf:about="http://devian.gr/movieproductionontology#Audio_Technica">
+        <rdf:type rdf:resource="http://devian.gr/movieproductionontology#EquipmentManufacturer"/>
+        <movieproductionontology:hasManufactured rdf:resource="http://devian.gr/movieproductionontology#Audio-Technica_ATR_3350"/>
+        <movieproductionontology:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Audio Technica</movieproductionontology:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#Birds_of_Prey -->
+
+    <owl:NamedIndividual rdf:about="http://devian.gr/movieproductionontology#Birds_of_Prey">
+        <rdf:type rdf:resource="http://devian.gr/movieproductionontology#Movie"/>
+        <movieproductionontology:hasGenre rdf:resource="http://devian.gr/movieproductionontology#Action"/>
+        <movieproductionontology:hasGenre rdf:resource="http://devian.gr/movieproductionontology#Adventure"/>
+        <movieproductionontology:hasGenre rdf:resource="http://devian.gr/movieproductionontology#Comedy"/>
+        <movieproductionontology:leadBy rdf:resource="http://devian.gr/movieproductionontology#Margot_Robbie"/>
+        <movieproductionontology:producedBy rdf:resource="http://devian.gr/movieproductionontology#Warner_Bros"/>
+        <movieproductionontology:supportedBy rdf:resource="http://devian.gr/movieproductionontology#Tommy_Lee_Jones"/>
+        <movieproductionontology:usedEquipment rdf:resource="http://devian.gr/movieproductionontology#Arri_Alexa_Mini"/>
+        <movieproductionontology:usedEquipment rdf:resource="http://devian.gr/movieproductionontology#Arri_Alexa_SXT_Plus"/>
+        <movieproductionontology:hasBudget rdf:datatype="http://www.w3.org/2001/XMLSchema#double">8.45E7</movieproductionontology:hasBudget>
+        <movieproductionontology:hasDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Η έξαλλη ζωή της Χάρλεϊ Κουίν εκτροχιάζεται ακόμα περισσότερο μετά τον ιδιαίτερα εκρηκτικό χωρισμό της από τον Τζόκερ. Για πρώτη φορά, είναι απροστάτευτη, με τον κάθε αλήτη της Γκόθαμ να την καταδιώκει. Εντωμεταξύ, ο αρχιμαφιόζος Ρόμαν Σαϊόνις έχει βάλει λυτούς και δεμένους για να βρει τη νεαρή πορτοφολού Κας, που έκλεψε το πολύτιμο διαμάντι του. Το μονοπάτι της Χάρλεϊ διασταυρώνεται με την Κυνηγό, την Μπλακ Κανάρι και τη Ρενέ Μοντόγια και το αλλόκοτο επιτελείο δεν έχει επιλογή από το να συνεργαστεί για να εξολοθρεύσει τον Ρόμαν μέσα σε μία θεότρελη, φονική μέρα.</movieproductionontology:hasDescription>
+        <movieproductionontology:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Birds of Prey</movieproductionontology:hasName>
+        <movieproductionontology:hasReleaseDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2020-02-09T00:00:00</movieproductionontology:hasReleaseDate>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#Blackmagic -->
+
+    <owl:NamedIndividual rdf:about="http://devian.gr/movieproductionontology#Blackmagic">
+        <rdf:type rdf:resource="http://devian.gr/movieproductionontology#EquipmentManufacturer"/>
+        <movieproductionontology:hasManufactured rdf:resource="http://devian.gr/movieproductionontology#Blackmagic_Micro_Cinema_Camera"/>
+        <movieproductionontology:hasManufactured rdf:resource="http://devian.gr/movieproductionontology#Blackmagic_Pocket_Cinema_Camera"/>
+        <movieproductionontology:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Blackmagic</movieproductionontology:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#Blackmagic_Micro_Cinema_Camera -->
+
+    <owl:NamedIndividual rdf:about="http://devian.gr/movieproductionontology#Blackmagic_Micro_Cinema_Camera">
+        <rdf:type rdf:resource="http://devian.gr/movieproductionontology#Camera"/>
+        <movieproductionontology:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Blackmagic Micro Cinema Camera</movieproductionontology:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#Blackmagic_Pocket_Cinema_Camera -->
+
+    <owl:NamedIndividual rdf:about="http://devian.gr/movieproductionontology#Blackmagic_Pocket_Cinema_Camera">
+        <rdf:type rdf:resource="http://devian.gr/movieproductionontology#Camera"/>
+        <movieproductionontology:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Blackmagic Pocket Cinema Camera</movieproductionontology:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#Canon -->
+
+    <owl:NamedIndividual rdf:about="http://devian.gr/movieproductionontology#Canon">
+        <rdf:type rdf:resource="http://devian.gr/movieproductionontology#EquipmentManufacturer"/>
+        <movieproductionontology:hasManufactured rdf:resource="http://devian.gr/movieproductionontology#Canon_EOS_C500"/>
+        <movieproductionontology:hasManufactured rdf:resource="http://devian.gr/movieproductionontology#Canon_Lens"/>
+        <movieproductionontology:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Canon</movieproductionontology:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#Canon_EOS_C500 -->
+
+    <owl:NamedIndividual rdf:about="http://devian.gr/movieproductionontology#Canon_EOS_C500">
+        <rdf:type rdf:resource="http://devian.gr/movieproductionontology#Camera"/>
+        <movieproductionontology:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Canon EOS C500</movieproductionontology:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#Canon_Lens -->
+
+    <owl:NamedIndividual rdf:about="http://devian.gr/movieproductionontology#Canon_Lens">
+        <rdf:type rdf:resource="http://devian.gr/movieproductionontology#Lens"/>
+        <movieproductionontology:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Canon Lens</movieproductionontology:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#Codex -->
+
+    <owl:NamedIndividual rdf:about="http://devian.gr/movieproductionontology#Codex">
+        <rdf:type rdf:resource="http://devian.gr/movieproductionontology#EquipmentManufacturer"/>
+        <movieproductionontology:hasManufactured rdf:resource="http://devian.gr/movieproductionontology#Codex_Action_Cam"/>
+        <movieproductionontology:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Codex</movieproductionontology:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#Codex_Action_Cam -->
+
+    <owl:NamedIndividual rdf:about="http://devian.gr/movieproductionontology#Codex_Action_Cam">
+        <rdf:type rdf:resource="http://devian.gr/movieproductionontology#Camera"/>
+        <movieproductionontology:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Codex Action Cam</movieproductionontology:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#Comedy -->
+
+    <owl:NamedIndividual rdf:about="http://devian.gr/movieproductionontology#Comedy">
+        <rdf:type rdf:resource="http://devian.gr/movieproductionontology#Genre"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#Cooke -->
+
+    <owl:NamedIndividual rdf:about="http://devian.gr/movieproductionontology#Cooke">
+        <rdf:type rdf:resource="http://devian.gr/movieproductionontology#EquipmentManufacturer"/>
+        <movieproductionontology:hasManufactured rdf:resource="http://devian.gr/movieproductionontology#Cooke_Xtal_Express"/>
+        <movieproductionontology:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Cooke Optics</movieproductionontology:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#Cooke_Xtal_Express -->
+
+    <owl:NamedIndividual rdf:about="http://devian.gr/movieproductionontology#Cooke_Xtal_Express">
+        <rdf:type rdf:resource="http://devian.gr/movieproductionontology#Lens"/>
+        <movieproductionontology:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Cooke Xtal Express</movieproductionontology:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#Crime -->
+
+    <owl:NamedIndividual rdf:about="http://devian.gr/movieproductionontology#Crime">
+        <rdf:type rdf:resource="http://devian.gr/movieproductionontology#Genre"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#Documentary -->
+
+    <owl:NamedIndividual rdf:about="http://devian.gr/movieproductionontology#Documentary">
+        <rdf:type rdf:resource="http://devian.gr/movieproductionontology#Genre"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#Domhall_Gleeson -->
+
+    <owl:NamedIndividual rdf:about="http://devian.gr/movieproductionontology#Domhall_Gleeson">
+        <rdf:type rdf:resource="http://devian.gr/movieproductionontology#Actor"/>
+        <movieproductionontology:bornAt rdf:resource="http://devian.gr/movieproductionontology#Ireland"/>
+        <movieproductionontology:coStarredWith rdf:resource="http://devian.gr/movieproductionontology#Alicia_Vikander"/>
+        <movieproductionontology:hasSex rdf:resource="http://devian.gr/movieproductionontology#Male"/>
+        <movieproductionontology:hasBirthday rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1983-05-12T00:00:00</movieproductionontology:hasBirthday>
+        <movieproductionontology:hasFirstname rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Domhnall</movieproductionontology:hasFirstname>
+        <movieproductionontology:hasLastname rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Gleeson</movieproductionontology:hasLastname>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#Drama -->
+
+    <owl:NamedIndividual rdf:about="http://devian.gr/movieproductionontology#Drama">
+        <rdf:type rdf:resource="http://devian.gr/movieproductionontology#Genre"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#Eli_Bush -->
+
+    <owl:NamedIndividual rdf:about="http://devian.gr/movieproductionontology#Eli_Bush">
+        <rdf:type rdf:resource="http://devian.gr/movieproductionontology#Producer"/>
+        <movieproductionontology:bornAt rdf:resource="http://devian.gr/movieproductionontology#United_States_of_America"/>
+        <movieproductionontology:hasFirstname rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Eli</movieproductionontology:hasFirstname>
+        <movieproductionontology:hasLastname rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Bush</movieproductionontology:hasLastname>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#England -->
+
+    <owl:NamedIndividual rdf:about="http://devian.gr/movieproductionontology#England">
+        <rdf:type rdf:resource="http://devian.gr/movieproductionontology#Country"/>
+        <movieproductionontology:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">England</movieproductionontology:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#Ex_Machina -->
+
+    <owl:NamedIndividual rdf:about="http://devian.gr/movieproductionontology#Ex_Machina">
+        <rdf:type rdf:resource="http://devian.gr/movieproductionontology#Movie"/>
+        <movieproductionontology:directedBy rdf:resource="http://devian.gr/movieproductionontology#Alex_Garland"/>
+        <movieproductionontology:hasGenre rdf:resource="http://devian.gr/movieproductionontology#Action"/>
+        <movieproductionontology:hasGenre rdf:resource="http://devian.gr/movieproductionontology#Drama"/>
+        <movieproductionontology:hasGenre rdf:resource="http://devian.gr/movieproductionontology#Science_Fiction"/>
+        <movieproductionontology:hasGenre rdf:resource="http://devian.gr/movieproductionontology#Thriller"/>
+        <movieproductionontology:leadBy rdf:resource="http://devian.gr/movieproductionontology#Alicia_Vikander"/>
+        <movieproductionontology:leadBy rdf:resource="http://devian.gr/movieproductionontology#Domhall_Gleeson"/>
+        <movieproductionontology:movieFilmedAt rdf:resource="http://devian.gr/movieproductionontology#Norway"/>
+        <movieproductionontology:participatedBy rdf:resource="http://devian.gr/movieproductionontology#Sonoya_Mizuno"/>
+        <movieproductionontology:producedBy rdf:resource="http://devian.gr/movieproductionontology#A24"/>
+        <movieproductionontology:producedBy rdf:resource="http://devian.gr/movieproductionontology#Eli_Bush"/>
+        <movieproductionontology:producedBy rdf:resource="http://devian.gr/movieproductionontology#Universal"/>
+        <movieproductionontology:staffedBy rdf:resource="http://devian.gr/movieproductionontology#Will_Akbar"/>
+        <movieproductionontology:supportedBy rdf:resource="http://devian.gr/movieproductionontology#Oscar_Isaac"/>
+        <movieproductionontology:usedEquipment rdf:resource="http://devian.gr/movieproductionontology#Angenieux_Optimo"/>
+        <movieproductionontology:usedEquipment rdf:resource="http://devian.gr/movieproductionontology#Cooke_Xtal_Express"/>
+        <movieproductionontology:usedEquipment rdf:resource="http://devian.gr/movieproductionontology#GoPro_Hero_3_Black_Edition"/>
+        <movieproductionontology:usedEquipment rdf:resource="http://devian.gr/movieproductionontology#Kowa_Prominar"/>
+        <movieproductionontology:usedEquipment rdf:resource="http://devian.gr/movieproductionontology#Sony_CineAlta_F65"/>
+        <movieproductionontology:usedEquipment rdf:resource="http://devian.gr/movieproductionontology#Sony_CineAlta_PMW-F55"/>
+        <movieproductionontology:writtenBy rdf:resource="http://devian.gr/movieproductionontology#Alex_Garland"/>
+        <movieproductionontology:hasBudget rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.5E7</movieproductionontology:hasBudget>
+        <movieproductionontology:hasDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ένας νεαρός ταλαντούχος προγραμματιστής επιλέγεται από έναν δισεκατομμυριούχο επιχειρηματία-εφευρέτη να γίνει ο αποκλειστικός μάρτυρας ενός πρωτοποριακού πειράματος. Απομονωμένος μαζί του σε ένα μυστικό εργαστήριο, πρέπει να αξιολογήσει την Έιβα, ένα θηλυκό ρομπότ με τεχνητή νοημοσύνη.</movieproductionontology:hasDescription>
+        <movieproductionontology:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ex Machina</movieproductionontology:hasName>
+        <movieproductionontology:hasReleaseDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2015-03-12T00:00:00</movieproductionontology:hasReleaseDate>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#Fantasy -->
+
+    <owl:NamedIndividual rdf:about="http://devian.gr/movieproductionontology#Fantasy">
+        <rdf:type rdf:resource="http://devian.gr/movieproductionontology#Genre"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#Female -->
+
+    <owl:NamedIndividual rdf:about="http://devian.gr/movieproductionontology#Female">
+        <rdf:type rdf:resource="http://devian.gr/movieproductionontology#Sex"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#France -->
+
+    <owl:NamedIndividual rdf:about="http://devian.gr/movieproductionontology#France">
+        <rdf:type rdf:resource="http://devian.gr/movieproductionontology#Country"/>
+        <movieproductionontology:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">France</movieproductionontology:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#Fujifilm -->
+
+    <owl:NamedIndividual rdf:about="http://devian.gr/movieproductionontology#Fujifilm">
+        <rdf:type rdf:resource="http://devian.gr/movieproductionontology#EquipmentManufacturer"/>
+        <movieproductionontology:hasManufactured rdf:resource="http://devian.gr/movieproductionontology#Fujinon_Premier_Cabrio"/>
+        <movieproductionontology:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Fujifilm</movieproductionontology:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#Fujinon_Premier_Cabrio -->
+
+    <owl:NamedIndividual rdf:about="http://devian.gr/movieproductionontology#Fujinon_Premier_Cabrio">
+        <rdf:type rdf:resource="http://devian.gr/movieproductionontology#Lens"/>
+        <movieproductionontology:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Fujinon Premier Cabrio</movieproductionontology:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#Geneva_Robertson-Dworet -->
+
+    <owl:NamedIndividual rdf:about="http://devian.gr/movieproductionontology#Geneva_Robertson-Dworet">
+        <rdf:type rdf:resource="http://devian.gr/movieproductionontology#Screenwritter"/>
+        <movieproductionontology:bornAt rdf:resource="http://devian.gr/movieproductionontology#United_States_of_America"/>
+        <movieproductionontology:hasSex rdf:resource="http://devian.gr/movieproductionontology#Female"/>
+        <movieproductionontology:hasWrittenMovie rdf:resource="http://devian.gr/movieproductionontology#Tomb_Raider"/>
+        <movieproductionontology:hasBirthday rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1985-08-05T00:00:00</movieproductionontology:hasBirthday>
+        <movieproductionontology:hasFirstname>Geneva</movieproductionontology:hasFirstname>
+        <movieproductionontology:hasLastname>Robertson-Dworet</movieproductionontology:hasLastname>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#GoPro -->
+
+    <owl:NamedIndividual rdf:about="http://devian.gr/movieproductionontology#GoPro">
+        <rdf:type rdf:resource="http://devian.gr/movieproductionontology#EquipmentManufacturer"/>
+        <movieproductionontology:hasManufactured rdf:resource="http://devian.gr/movieproductionontology#GoPro_Hero_3_Black_Edition"/>
+        <movieproductionontology:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">GoPro</movieproductionontology:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#GoPro_Hero_3_Black_Edition -->
+
+    <owl:NamedIndividual rdf:about="http://devian.gr/movieproductionontology#GoPro_Hero_3_Black_Edition">
+        <rdf:type rdf:resource="http://devian.gr/movieproductionontology#Camera"/>
+        <movieproductionontology:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">GoPro Hero 3 Black Edition</movieproductionontology:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#Graham_King -->
+
+    <owl:NamedIndividual rdf:about="http://devian.gr/movieproductionontology#Graham_King">
+        <rdf:type rdf:resource="http://devian.gr/movieproductionontology#Producer"/>
+        <movieproductionontology:bornAt rdf:resource="http://devian.gr/movieproductionontology#England"/>
+        <movieproductionontology:hasBirthday rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1961-12-19T00:00:00</movieproductionontology:hasBirthday>
+        <movieproductionontology:hasFirstname>Graham</movieproductionontology:hasFirstname>
+        <movieproductionontology:hasLastname>King</movieproductionontology:hasLastname>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#Greece -->
+
+    <owl:NamedIndividual rdf:about="http://devian.gr/movieproductionontology#Greece">
+        <rdf:type rdf:resource="http://devian.gr/movieproductionontology#Country"/>
+        <movieproductionontology:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Greece</movieproductionontology:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#Guatemala -->
+
+    <owl:NamedIndividual rdf:about="http://devian.gr/movieproductionontology#Guatemala">
+        <rdf:type rdf:resource="http://devian.gr/movieproductionontology#Country"/>
+        <movieproductionontology:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Guatemala</movieproductionontology:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#Hannah_John-Kamen -->
+
+    <owl:NamedIndividual rdf:about="http://devian.gr/movieproductionontology#Hannah_John-Kamen">
+        <rdf:type rdf:resource="http://devian.gr/movieproductionontology#Actor"/>
+        <movieproductionontology:bornAt rdf:resource="http://devian.gr/movieproductionontology#England"/>
+        <movieproductionontology:hasSex rdf:resource="http://devian.gr/movieproductionontology#Female"/>
+        <movieproductionontology:hasBirthday rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1989-07-09T00:00:00</movieproductionontology:hasBirthday>
+        <movieproductionontology:hasFirstname>Hannah</movieproductionontology:hasFirstname>
+        <movieproductionontology:hasLastname>John-Kamen</movieproductionontology:hasLastname>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#Horror -->
+
+    <owl:NamedIndividual rdf:about="http://devian.gr/movieproductionontology#Horror">
+        <rdf:type rdf:resource="http://devian.gr/movieproductionontology#Genre"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#India -->
+
+    <owl:NamedIndividual rdf:about="http://devian.gr/movieproductionontology#India">
+        <rdf:type rdf:resource="http://devian.gr/movieproductionontology#Country"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#Ireland -->
+
+    <owl:NamedIndividual rdf:about="http://devian.gr/movieproductionontology#Ireland">
+        <rdf:type rdf:resource="http://devian.gr/movieproductionontology#Country"/>
+        <movieproductionontology:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ireland</movieproductionontology:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#Japan -->
+
+    <owl:NamedIndividual rdf:about="http://devian.gr/movieproductionontology#Japan">
+        <rdf:type rdf:resource="http://devian.gr/movieproductionontology#Country"/>
+        <movieproductionontology:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Japan</movieproductionontology:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#Jason_Bourne -->
+
+    <owl:NamedIndividual rdf:about="http://devian.gr/movieproductionontology#Jason_Bourne">
+        <rdf:type rdf:resource="http://devian.gr/movieproductionontology#Movie"/>
+        <movieproductionontology:directedBy rdf:resource="http://devian.gr/movieproductionontology#Paul_Greengrass"/>
+        <movieproductionontology:hasGenre rdf:resource="http://devian.gr/movieproductionontology#Action"/>
+        <movieproductionontology:hasGenre rdf:resource="http://devian.gr/movieproductionontology#Thriller"/>
+        <movieproductionontology:leadBy rdf:resource="http://devian.gr/movieproductionontology#Alicia_Vikander"/>
+        <movieproductionontology:leadBy rdf:resource="http://devian.gr/movieproductionontology#Matt_Damon"/>
+        <movieproductionontology:movieFilmedAt rdf:resource="http://devian.gr/movieproductionontology#France"/>
+        <movieproductionontology:movieFilmedAt rdf:resource="http://devian.gr/movieproductionontology#Greece"/>
+        <movieproductionontology:movieFilmedAt rdf:resource="http://devian.gr/movieproductionontology#United_States_of_America"/>
+        <movieproductionontology:participatedBy rdf:resource="http://devian.gr/movieproductionontology#Vincent_Cassel"/>
+        <movieproductionontology:producedBy rdf:resource="http://devian.gr/movieproductionontology#Universal"/>
+        <movieproductionontology:supportedBy rdf:resource="http://devian.gr/movieproductionontology#Tommy_Lee_Jones"/>
+        <movieproductionontology:usedEquipment rdf:resource="http://devian.gr/movieproductionontology#Aaton_Penelope"/>
+        <movieproductionontology:usedEquipment rdf:resource="http://devian.gr/movieproductionontology#Aaton_XTR_Prod"/>
+        <movieproductionontology:usedEquipment rdf:resource="http://devian.gr/movieproductionontology#Angenieux_Optimo"/>
+        <movieproductionontology:usedEquipment rdf:resource="http://devian.gr/movieproductionontology#Arri_Alexa_XT"/>
+        <movieproductionontology:usedEquipment rdf:resource="http://devian.gr/movieproductionontology#Blackmagic_Micro_Cinema_Camera"/>
+        <movieproductionontology:usedEquipment rdf:resource="http://devian.gr/movieproductionontology#Blackmagic_Pocket_Cinema_Camera"/>
+        <movieproductionontology:usedEquipment rdf:resource="http://devian.gr/movieproductionontology#Canon_EOS_C500"/>
+        <movieproductionontology:usedEquipment rdf:resource="http://devian.gr/movieproductionontology#Canon_Lens"/>
+        <movieproductionontology:usedEquipment rdf:resource="http://devian.gr/movieproductionontology#Codex_Action_Cam"/>
+        <movieproductionontology:usedEquipment rdf:resource="http://devian.gr/movieproductionontology#Fujinon_Premier_Cabrio"/>
+        <movieproductionontology:usedEquipment rdf:resource="http://devian.gr/movieproductionontology#Kowa_Prominar"/>
+        <movieproductionontology:usedEquipment rdf:resource="http://devian.gr/movieproductionontology#Panavision_Primo"/>
+        <movieproductionontology:usedEquipment rdf:resource="http://devian.gr/movieproductionontology#Red_Epic_Dragon"/>
+        <movieproductionontology:usedEquipment rdf:resource="http://devian.gr/movieproductionontology#TLS_Morpheus"/>
+        <movieproductionontology:usedEquipment rdf:resource="http://devian.gr/movieproductionontology#Ultra_Prime"/>
+        <movieproductionontology:usedEquipment rdf:resource="http://devian.gr/movieproductionontology#Zeiss_Super_Speed"/>
+        <movieproductionontology:usedEquipment rdf:resource="http://devian.gr/movieproductionontology#Arri_Alexa_Plus_4:3"/>
+        <movieproductionontology:writtenBy rdf:resource="http://devian.gr/movieproductionontology#Paul_Greengrass"/>
+        <movieproductionontology:hasBudget rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.2E8</movieproductionontology:hasBudget>
+        <movieproductionontology:hasDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Εφτά χρόνια μετά την ανάκτηση της μνήμης του και την εξαφάνισή του, ο Τζέισον Μπορν ξαφνικά επιστρέφει σε μια εποχή που ο κόσμος είναι πιο ασταθής από ποτέ άλλοτε, για να αποκαλύψει την κρυμμένη αλήθεια για το παρελθόν του. Την ίδια στιγμή, ένα νέο πρόγραμμα δημιουργείται για να τον εντοπίσει και να τον εξουδετερώσει.</movieproductionontology:hasDescription>
+        <movieproductionontology:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Jason Bourne</movieproductionontology:hasName>
+        <movieproductionontology:hasReleaseDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2016-07-26T00:00:00</movieproductionontology:hasReleaseDate>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#Kowa -->
+
+    <owl:NamedIndividual rdf:about="http://devian.gr/movieproductionontology#Kowa">
+        <rdf:type rdf:resource="http://devian.gr/movieproductionontology#EquipmentManufacturer"/>
+        <movieproductionontology:hasManufactured rdf:resource="http://devian.gr/movieproductionontology#Kowa_Prominar"/>
+        <movieproductionontology:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Kowa Optronics</movieproductionontology:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#Kowa_Prominar -->
+
+    <owl:NamedIndividual rdf:about="http://devian.gr/movieproductionontology#Kowa_Prominar">
+        <rdf:type rdf:resource="http://devian.gr/movieproductionontology#Lens"/>
+        <movieproductionontology:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Kowa Prominar</movieproductionontology:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#Male -->
+
+    <owl:NamedIndividual rdf:about="http://devian.gr/movieproductionontology#Male">
+        <rdf:type rdf:resource="http://devian.gr/movieproductionontology#Sex"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#Margot_Robbie -->
+
+    <owl:NamedIndividual rdf:about="http://devian.gr/movieproductionontology#Margot_Robbie">
+        <rdf:type rdf:resource="http://devian.gr/movieproductionontology#Actor"/>
+        <movieproductionontology:bornAt rdf:resource="http://devian.gr/movieproductionontology#United_States_of_America"/>
+        <movieproductionontology:hasSex rdf:resource="http://devian.gr/movieproductionontology#Female"/>
+        <movieproductionontology:hasBirthday rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1992-07-02T00:00:00</movieproductionontology:hasBirthday>
+        <movieproductionontology:hasFirstname>Margot</movieproductionontology:hasFirstname>
+        <movieproductionontology:hasLastname>Robbie</movieproductionontology:hasLastname>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#Matt_Damon -->
+
+    <owl:NamedIndividual rdf:about="http://devian.gr/movieproductionontology#Matt_Damon">
+        <rdf:type rdf:resource="http://devian.gr/movieproductionontology#Actor"/>
+        <movieproductionontology:bornAt rdf:resource="http://devian.gr/movieproductionontology#United_States_of_America"/>
+        <movieproductionontology:hasSex rdf:resource="http://devian.gr/movieproductionontology#Male"/>
+        <movieproductionontology:hasBirthday rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1970-10-08T00:00:00</movieproductionontology:hasBirthday>
+        <movieproductionontology:hasFirstname rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Matt</movieproductionontology:hasFirstname>
+        <movieproductionontology:hasLastname rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Damon</movieproductionontology:hasLastname>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#Norway -->
+
+    <owl:NamedIndividual rdf:about="http://devian.gr/movieproductionontology#Norway">
+        <rdf:type rdf:resource="http://devian.gr/movieproductionontology#Country"/>
+        <movieproductionontology:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Norway</movieproductionontology:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#Oscar_Isaac -->
+
+    <owl:NamedIndividual rdf:about="http://devian.gr/movieproductionontology#Oscar_Isaac">
+        <rdf:type rdf:resource="http://devian.gr/movieproductionontology#Actor"/>
+        <movieproductionontology:bornAt rdf:resource="http://devian.gr/movieproductionontology#Guatemala"/>
+        <movieproductionontology:hasSex rdf:resource="http://devian.gr/movieproductionontology#Male"/>
+        <movieproductionontology:hasBirthday rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1979-03-09T00:00:00</movieproductionontology:hasBirthday>
+        <movieproductionontology:hasFirstname rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Oscar</movieproductionontology:hasFirstname>
+        <movieproductionontology:hasLastname rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Isaac</movieproductionontology:hasLastname>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#Panavision -->
+
+    <owl:NamedIndividual rdf:about="http://devian.gr/movieproductionontology#Panavision">
+        <rdf:type rdf:resource="http://devian.gr/movieproductionontology#EquipmentManufacturer"/>
+        <movieproductionontology:hasManufactured rdf:resource="http://devian.gr/movieproductionontology#Panavision_E_Series"/>
+        <movieproductionontology:hasManufactured rdf:resource="http://devian.gr/movieproductionontology#Panavision_G_Series"/>
+        <movieproductionontology:hasManufactured rdf:resource="http://devian.gr/movieproductionontology#Panavision_Primo"/>
+        <movieproductionontology:hasManufactured rdf:resource="http://devian.gr/movieproductionontology#Panavision_T_Series"/>
+        <movieproductionontology:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Panavision</movieproductionontology:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#Panavision_E_Series -->
+
+    <owl:NamedIndividual rdf:about="http://devian.gr/movieproductionontology#Panavision_E_Series">
+        <rdf:type rdf:resource="http://devian.gr/movieproductionontology#Lens"/>
+        <movieproductionontology:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Panavision E Series</movieproductionontology:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#Panavision_G_Series -->
+
+    <owl:NamedIndividual rdf:about="http://devian.gr/movieproductionontology#Panavision_G_Series">
+        <rdf:type rdf:resource="http://devian.gr/movieproductionontology#Lens"/>
+        <movieproductionontology:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Panavision G Series</movieproductionontology:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#Panavision_Primo -->
+
+    <owl:NamedIndividual rdf:about="http://devian.gr/movieproductionontology#Panavision_Primo">
+        <rdf:type rdf:resource="http://devian.gr/movieproductionontology#Lens"/>
+        <movieproductionontology:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Panavision Primo</movieproductionontology:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#Panavision_T_Series -->
+
+    <owl:NamedIndividual rdf:about="http://devian.gr/movieproductionontology#Panavision_T_Series">
+        <rdf:type rdf:resource="http://devian.gr/movieproductionontology#Lens"/>
+        <movieproductionontology:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Panavision T Series</movieproductionontology:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#Paul_Greengrass -->
+
+    <owl:NamedIndividual rdf:about="http://devian.gr/movieproductionontology#Paul_Greengrass">
+        <rdf:type rdf:resource="http://devian.gr/movieproductionontology#Director"/>
+        <rdf:type rdf:resource="http://devian.gr/movieproductionontology#Screenwritter"/>
+        <movieproductionontology:bornAt rdf:resource="http://devian.gr/movieproductionontology#England"/>
+        <movieproductionontology:hasSex rdf:resource="http://devian.gr/movieproductionontology#Male"/>
+        <movieproductionontology:hasBirthday rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1955-08-13T00:00:00</movieproductionontology:hasBirthday>
+        <movieproductionontology:hasFirstname rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Greengrass</movieproductionontology:hasFirstname>
+        <movieproductionontology:hasFirstname rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Paul</movieproductionontology:hasFirstname>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#Red -->
+
+    <owl:NamedIndividual rdf:about="http://devian.gr/movieproductionontology#Red">
+        <rdf:type rdf:resource="http://devian.gr/movieproductionontology#EquipmentManufacturer"/>
+        <movieproductionontology:hasManufactured rdf:resource="http://devian.gr/movieproductionontology#Red_Epic_Dragon"/>
+        <movieproductionontology:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Red</movieproductionontology:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#Red_Epic_Dragon -->
+
+    <owl:NamedIndividual rdf:about="http://devian.gr/movieproductionontology#Red_Epic_Dragon">
+        <rdf:type rdf:resource="http://devian.gr/movieproductionontology#Camera"/>
+        <movieproductionontology:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Red Epic Dragon</movieproductionontology:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#Resham_Aaron -->
+
+    <owl:NamedIndividual rdf:about="http://devian.gr/movieproductionontology#Resham_Aaron">
+        <rdf:type rdf:resource="http://devian.gr/movieproductionontology#Staff"/>
+        <movieproductionontology:wasStaffInMovie rdf:resource="http://devian.gr/movieproductionontology#Tomb_Raider"/>
+        <movieproductionontology:hasFirstname>Resham</movieproductionontology:hasFirstname>
+        <movieproductionontology:hasJobTitle>VFX Supervisor</movieproductionontology:hasJobTitle>
+        <movieproductionontology:hasLastname>Aaron</movieproductionontology:hasLastname>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#Roar_Uthaug -->
+
+    <owl:NamedIndividual rdf:about="http://devian.gr/movieproductionontology#Roar_Uthaug">
+        <rdf:type rdf:resource="http://devian.gr/movieproductionontology#Director"/>
+        <movieproductionontology:bornAt rdf:resource="http://devian.gr/movieproductionontology#Norway"/>
+        <movieproductionontology:hasSex rdf:resource="http://devian.gr/movieproductionontology#Male"/>
+        <movieproductionontology:hasBirthday rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1973-08-25T00:00:00</movieproductionontology:hasBirthday>
+        <movieproductionontology:hasFirstname>Roar</movieproductionontology:hasFirstname>
+        <movieproductionontology:hasLastname>Uthaug</movieproductionontology:hasLastname>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#Romance -->
+
+    <owl:NamedIndividual rdf:about="http://devian.gr/movieproductionontology#Romance">
+        <rdf:type rdf:resource="http://devian.gr/movieproductionontology#Genre"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#Science_Fiction -->
+
+    <owl:NamedIndividual rdf:about="http://devian.gr/movieproductionontology#Science_Fiction">
+        <rdf:type rdf:resource="http://devian.gr/movieproductionontology#Genre"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#Sonoya_Mizuno -->
+
+    <owl:NamedIndividual rdf:about="http://devian.gr/movieproductionontology#Sonoya_Mizuno">
+        <rdf:type rdf:resource="http://devian.gr/movieproductionontology#Actor"/>
+        <movieproductionontology:bornAt rdf:resource="http://devian.gr/movieproductionontology#Japan"/>
+        <movieproductionontology:hasSex rdf:resource="http://devian.gr/movieproductionontology#Female"/>
+        <movieproductionontology:hasBirthday rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1988-07-01T00:00:00</movieproductionontology:hasBirthday>
+        <movieproductionontology:hasFirstname rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sonoya</movieproductionontology:hasFirstname>
+        <movieproductionontology:hasLastname rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Mizuno</movieproductionontology:hasLastname>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#Sony -->
+
+    <owl:NamedIndividual rdf:about="http://devian.gr/movieproductionontology#Sony">
+        <rdf:type rdf:resource="http://devian.gr/movieproductionontology#EquipmentManufacturer"/>
+        <movieproductionontology:hasManufactured rdf:resource="http://devian.gr/movieproductionontology#Sony_CineAlta_F65"/>
+        <movieproductionontology:hasManufactured rdf:resource="http://devian.gr/movieproductionontology#Sony_CineAlta_PMW-F55"/>
+        <movieproductionontology:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sony</movieproductionontology:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#Sony_CineAlta_F65 -->
+
+    <owl:NamedIndividual rdf:about="http://devian.gr/movieproductionontology#Sony_CineAlta_F65">
+        <rdf:type rdf:resource="http://devian.gr/movieproductionontology#Camera"/>
+        <movieproductionontology:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sony CineAlta F65</movieproductionontology:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#Sony_CineAlta_PMW-F55 -->
+
+    <owl:NamedIndividual rdf:about="http://devian.gr/movieproductionontology#Sony_CineAlta_PMW-F55">
+        <rdf:type rdf:resource="http://devian.gr/movieproductionontology#Camera"/>
+        <movieproductionontology:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sony CineAlta PMW-F55</movieproductionontology:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#Square_Enix -->
+
+    <owl:NamedIndividual rdf:about="http://devian.gr/movieproductionontology#Square_Enix">
+        <rdf:type rdf:resource="http://devian.gr/movieproductionontology#ProductionCompany"/>
+        <movieproductionontology:companyLocatedAt rdf:resource="http://devian.gr/movieproductionontology#Japan"/>
+        <movieproductionontology:hasName>Square Enix</movieproductionontology:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#Sweden -->
+
+    <owl:NamedIndividual rdf:about="http://devian.gr/movieproductionontology#Sweden">
+        <rdf:type rdf:resource="http://devian.gr/movieproductionontology#Country"/>
+        <movieproductionontology:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sweden</movieproductionontology:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#TLS_Morpheus -->
+
+    <owl:NamedIndividual rdf:about="http://devian.gr/movieproductionontology#TLS_Morpheus">
+        <rdf:type rdf:resource="http://devian.gr/movieproductionontology#Lens"/>
+        <movieproductionontology:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">TLS Morpheus</movieproductionontology:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#Thriller -->
+
+    <owl:NamedIndividual rdf:about="http://devian.gr/movieproductionontology#Thriller">
+        <rdf:type rdf:resource="http://devian.gr/movieproductionontology#Genre"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#Tomb_Raider -->
+
+    <owl:NamedIndividual rdf:about="http://devian.gr/movieproductionontology#Tomb_Raider">
+        <rdf:type rdf:resource="http://devian.gr/movieproductionontology#Movie"/>
+        <movieproductionontology:directedBy rdf:resource="http://devian.gr/movieproductionontology#Roar_Uthaug"/>
+        <movieproductionontology:hasGenre rdf:resource="http://devian.gr/movieproductionontology#Action"/>
+        <movieproductionontology:hasGenre rdf:resource="http://devian.gr/movieproductionontology#Adventure"/>
+        <movieproductionontology:hasGenre rdf:resource="http://devian.gr/movieproductionontology#Fantasy"/>
+        <movieproductionontology:leadBy rdf:resource="http://devian.gr/movieproductionontology#Alicia_Vikander"/>
+        <movieproductionontology:leadBy rdf:resource="http://devian.gr/movieproductionontology#Margot_Robbie"/>
+        <movieproductionontology:movieFilmedAt rdf:resource="http://devian.gr/movieproductionontology#WB_London_Facility"/>
+        <movieproductionontology:participatedBy rdf:resource="http://devian.gr/movieproductionontology#Hannah_John-Kamen"/>
+        <movieproductionontology:producedBy rdf:resource="http://devian.gr/movieproductionontology#Graham_King"/>
+        <movieproductionontology:producedBy rdf:resource="http://devian.gr/movieproductionontology#Square_Enix"/>
+        <movieproductionontology:producedBy rdf:resource="http://devian.gr/movieproductionontology#Warner_Bros"/>
+        <movieproductionontology:usedEquipment rdf:resource="http://devian.gr/movieproductionontology#Arri_Alexa_Mini"/>
+        <movieproductionontology:usedEquipment rdf:resource="http://devian.gr/movieproductionontology#Arri_Alexa_SXT_Plus"/>
+        <movieproductionontology:usedEquipment rdf:resource="http://devian.gr/movieproductionontology#Arri_Orbiter"/>
+        <movieproductionontology:usedEquipment rdf:resource="http://devian.gr/movieproductionontology#Audio-Technica_ATR_3350"/>
+        <movieproductionontology:usedEquipment rdf:resource="http://devian.gr/movieproductionontology#Panavision_E_Series"/>
+        <movieproductionontology:usedEquipment rdf:resource="http://devian.gr/movieproductionontology#Panavision_G_Series"/>
+        <movieproductionontology:usedEquipment rdf:resource="http://devian.gr/movieproductionontology#Panavision_T_Series"/>
+        <movieproductionontology:usedEquipment rdf:resource="http://devian.gr/movieproductionontology#Velbon_DV-7000N"/>
+        <movieproductionontology:writtenBy rdf:resource="http://devian.gr/movieproductionontology#Geneva_Robertson-Dworet"/>
+        <movieproductionontology:hasBudget rdf:datatype="http://www.w3.org/2001/XMLSchema#double">9.4E7</movieproductionontology:hasBudget>
+        <movieproductionontology:hasDescription>Η Λάρα Κροφτ είναι η ατίθαση κόρη ενός εκκεντρικού εξερευνητή, ο οποίος εξαφανίστηκε, όταν εκείνη ήταν ακόμα στην εφηβεία. Στα 21 της πια, χωρίς κάποιο νόημα ή σκοπό στη ζωή της, η Λάρα περνάει τις μέρες στο Λονδίνο, ως ταχυμεταφορέας. Το νοίκι βγαίνει με δυσκολία, όπως άλλωστε και τα μαθήματα στο πανεπιστήμιο, τα οποία συνήθως δεν παρακολουθεί. Aρνείται τα σκήπτρα της παγκόσμιας αυτοκρατορίας του πατέρας της, με το ίδιο πάθος που αρνείται να αποδεχθεί τον θάνατό του. Eπτά χρόνια μετά την εξαφάνιση του, η Λάρα θα προσπαθήσει να λύσει το μυστήριο που περιβάλλει το θάνατό του. Ξεκινάει για τον τελευταίο γνωστό προορισμό του πατέρα της: έναν τύμβο σε ένα μυθικό νησί στα ανοιχτά της Ιαπωνίας. Η αποστολή της όμως, δεν θα είναι εύκολη. Mε μοναδικό όπλο το πολυμήχανο μυαλό της, την τυφλή πίστη της και το ατίθασο πνεύμα της, αν καταφέρει να επιζήσει της επικίνδυνης αυτής περιπέτειας, τότε ίσως ανοιχτεί μπροστά της μια νέα ζωή, κερδίζοντας επάξια τον τίτλο του tomb raider.</movieproductionontology:hasDescription>
+        <movieproductionontology:hasName>Tomb Raider</movieproductionontology:hasName>
+        <movieproductionontology:hasReleaseDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2018-03-15T00:00:00</movieproductionontology:hasReleaseDate>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#Tommy_Lee_Jones -->
+
+    <owl:NamedIndividual rdf:about="http://devian.gr/movieproductionontology#Tommy_Lee_Jones">
+        <rdf:type rdf:resource="http://devian.gr/movieproductionontology#Actor"/>
+        <movieproductionontology:bornAt rdf:resource="http://devian.gr/movieproductionontology#United_States_of_America"/>
+        <movieproductionontology:hasSex rdf:resource="http://devian.gr/movieproductionontology#Male"/>
+        <movieproductionontology:hasBirthday rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1946-09-15T00:00:00</movieproductionontology:hasBirthday>
+        <movieproductionontology:hasFirstname rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Tommy</movieproductionontology:hasFirstname>
+        <movieproductionontology:hasLastname rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Lee Jones</movieproductionontology:hasLastname>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#Truelens -->
+
+    <owl:NamedIndividual rdf:about="http://devian.gr/movieproductionontology#Truelens">
+        <rdf:type rdf:resource="http://devian.gr/movieproductionontology#EquipmentManufacturer"/>
+        <movieproductionontology:hasManufactured rdf:resource="http://devian.gr/movieproductionontology#TLS_Morpheus"/>
+        <movieproductionontology:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Truelens</movieproductionontology:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#Ultra_Prime -->
+
+    <owl:NamedIndividual rdf:about="http://devian.gr/movieproductionontology#Ultra_Prime">
+        <rdf:type rdf:resource="http://devian.gr/movieproductionontology#Lens"/>
+        <movieproductionontology:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ultra Prime</movieproductionontology:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#United_States_of_America -->
+
+    <owl:NamedIndividual rdf:about="http://devian.gr/movieproductionontology#United_States_of_America">
+        <rdf:type rdf:resource="http://devian.gr/movieproductionontology#Country"/>
+        <movieproductionontology:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">United States of America</movieproductionontology:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#Universal -->
+
+    <owl:NamedIndividual rdf:about="http://devian.gr/movieproductionontology#Universal">
+        <rdf:type rdf:resource="http://devian.gr/movieproductionontology#ProductionCompany"/>
+        <movieproductionontology:companyLocatedAt rdf:resource="http://devian.gr/movieproductionontology#United_States_of_America"/>
+        <movieproductionontology:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Universal</movieproductionontology:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#Velbon -->
+
+    <owl:NamedIndividual rdf:about="http://devian.gr/movieproductionontology#Velbon">
+        <rdf:type rdf:resource="http://devian.gr/movieproductionontology#EquipmentManufacturer"/>
+        <movieproductionontology:hasManufactured rdf:resource="http://devian.gr/movieproductionontology#Velbon_DV-7000N"/>
+        <movieproductionontology:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Velbon</movieproductionontology:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#Velbon_DV-7000N -->
+
+    <owl:NamedIndividual rdf:about="http://devian.gr/movieproductionontology#Velbon_DV-7000N">
+        <rdf:type rdf:resource="http://devian.gr/movieproductionontology#Tripod"/>
+        <movieproductionontology:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Velbon DV-7000N</movieproductionontology:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#Vincent_Cassel -->
+
+    <owl:NamedIndividual rdf:about="http://devian.gr/movieproductionontology#Vincent_Cassel">
+        <rdf:type rdf:resource="http://devian.gr/movieproductionontology#Actor"/>
+        <movieproductionontology:bornAt rdf:resource="http://devian.gr/movieproductionontology#France"/>
+        <movieproductionontology:hasSex rdf:resource="http://devian.gr/movieproductionontology#Male"/>
+        <movieproductionontology:hasBirthday rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1966-11-23T00:00:00</movieproductionontology:hasBirthday>
+        <movieproductionontology:hasFirstname rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Vincent</movieproductionontology:hasFirstname>
+        <movieproductionontology:hasLastname rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Cassel</movieproductionontology:hasLastname>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#WB_London_Facility -->
+
+    <owl:NamedIndividual rdf:about="http://devian.gr/movieproductionontology#WB_London_Facility">
+        <rdf:type rdf:resource="http://devian.gr/movieproductionontology#Facility"/>
+        <movieproductionontology:facilityLocatedAt rdf:resource="http://devian.gr/movieproductionontology#England"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#Warner_Bros -->
+
+    <owl:NamedIndividual rdf:about="http://devian.gr/movieproductionontology#Warner_Bros">
+        <rdf:type rdf:resource="http://devian.gr/movieproductionontology#ProductionCompany"/>
+        <movieproductionontology:companyLocatedAt rdf:resource="http://devian.gr/movieproductionontology#United_States_of_America"/>
+        <movieproductionontology:hasName>Warner Bros</movieproductionontology:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#Will_Akbar -->
+
+    <owl:NamedIndividual rdf:about="http://devian.gr/movieproductionontology#Will_Akbar">
+        <rdf:type rdf:resource="http://devian.gr/movieproductionontology#Staff"/>
+        <movieproductionontology:bornAt rdf:resource="http://devian.gr/movieproductionontology#India"/>
+        <movieproductionontology:hasFirstname rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Akbar</movieproductionontology:hasFirstname>
+        <movieproductionontology:hasFirstname rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Will</movieproductionontology:hasFirstname>
+        <movieproductionontology:hasJobTitle rdf:datatype="http://www.w3.org/2001/XMLSchema#string">VT Operator</movieproductionontology:hasJobTitle>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#Zeiss -->
+
+    <owl:NamedIndividual rdf:about="http://devian.gr/movieproductionontology#Zeiss">
+        <rdf:type rdf:resource="http://devian.gr/movieproductionontology#EquipmentManufacturer"/>
+        <movieproductionontology:hasManufactured rdf:resource="http://devian.gr/movieproductionontology#Zeiss_Super_Speed"/>
+        <movieproductionontology:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Zeiss</movieproductionontology:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#Zeiss_Super_Speed -->
+
+    <owl:NamedIndividual rdf:about="http://devian.gr/movieproductionontology#Zeiss_Super_Speed">
+        <rdf:type rdf:resource="http://devian.gr/movieproductionontology#Lens"/>
+        <movieproductionontology:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Zeiss Super Speed</movieproductionontology:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://devian.gr/movieproductionontology#Arri_Alexa_Plus_4:3 -->
+
+    <owl:NamedIndividual rdf:about="http://devian.gr/movieproductionontology#Arri_Alexa_Plus_4:3">
+        <rdf:type rdf:resource="http://devian.gr/movieproductionontology#Camera"/>
+        <movieproductionontology:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Arri Alexa Plus 4:3</movieproductionontology:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://devian.gr/movieproductionontology#Camera"/>
+            <rdf:Description rdf:about="http://devian.gr/movieproductionontology#Lens"/>
+            <rdf:Description rdf:about="http://devian.gr/movieproductionontology#Lighting"/>
+            <rdf:Description rdf:about="http://devian.gr/movieproductionontology#Microphone"/>
+            <rdf:Description rdf:about="http://devian.gr/movieproductionontology#Tripod"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://devian.gr/movieproductionontology#Equipment"/>
+            <rdf:Description rdf:about="http://devian.gr/movieproductionontology#EquipmentManufacturer"/>
+            <rdf:Description rdf:about="http://devian.gr/movieproductionontology#Facility"/>
+            <rdf:Description rdf:about="http://devian.gr/movieproductionontology#Genre"/>
+            <rdf:Description rdf:about="http://devian.gr/movieproductionontology#Location"/>
+            <rdf:Description rdf:about="http://devian.gr/movieproductionontology#Movie"/>
+            <rdf:Description rdf:about="http://devian.gr/movieproductionontology#Person"/>
+            <rdf:Description rdf:about="http://devian.gr/movieproductionontology#ProductionCompany"/>
+            <rdf:Description rdf:about="http://devian.gr/movieproductionontology#Sex"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+
